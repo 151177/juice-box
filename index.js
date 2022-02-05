@@ -2,9 +2,6 @@ const express = require('express');
 const server = express();
 require("dotenv").config();
 
-const apiRouter = require('./api');
-server.use('/api', apiRouter);
-
 const morgan = require('morgan');
 // morgan('dev'), is a function which
 // logs out the incoming requests
@@ -21,6 +18,12 @@ server.use((req, res, next) => {
 
   next();
 });
+
+// we want to keep middleware above router
+// to parse before running to routes
+const apiRouter = require('./api');
+server.use('/api', apiRouter);
+
 
 const { client } = require('./db');
 client.connect();
