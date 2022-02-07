@@ -20,7 +20,7 @@ server.use((req, res, next) => {
 });
 
 // we want to keep middleware above router
-// to parse before running to routes
+// to parse data before running to routes
 const apiRouter = require('./api');
 server.use('/api', apiRouter);
 

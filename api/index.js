@@ -42,12 +42,24 @@ apiRouter.use(async (req, res, next) => {
 
 apiRouter.use((req, res, next) => {
     if (req.user) {
-      console.log("User is set:", req.user);
+        console.log("User is set:", req.user);
     }
-  
+
     next();
-  });
-  
+});
+
+// server.get('/background/:color', (req, res, next) => {
+//     res.send(`
+//       <body style="background: ${req.params.color};">
+//         <h1>Hello World</h1>
+//       </body>
+//     `);
+// });
+
+// server.get('/add/:first/to/:second', (req, res, next) => {
+//     res.send(`<h1>${req.params.first} + ${req.params.second} = ${Number(req.params.first) + Number(req.params.second)
+//         }</h1>`);
+// });
 
 
 const usersRouter = require('./users');
